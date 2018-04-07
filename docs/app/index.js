@@ -1,7 +1,26 @@
+import { createRenderer } from 'fela'
+import monolithic from 'fela-monolithic'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider, ThemeProvider } from 'react-fela'
 
 import Router from './routes'
+import * as defaultSiteVariables from '../../src/lib/styles/defaultSiteVariables'
+
+// ----------------------------------------
+// Style Renderer
+// ----------------------------------------
+
+const config = {
+  middleware: [
+    // composes style objects
+  ],
+  enhancers: [
+    monolithic(),
+  ],
+}
+
+const renderer = createRenderer(config)
 
 // ----------------------------------------
 // Rendering
@@ -10,7 +29,14 @@ import Router from './routes'
 const mountNode = document.createElement('div')
 document.body.appendChild(mountNode)
 
-const render = NewApp => ReactDOM.render(<NewApp />, mountNode)
+const render = NewApp => ReactDOM.render(
+  <Provider renderer={renderer}>
+    <ThemeProvider theme={defaultSiteVariables}>
+      <NewApp />
+    </ThemeProvider>
+  </Provider>,
+  mountNode,
+)
 
 // ----------------------------------------
 // HMR
