@@ -26,7 +26,7 @@ describe('keyboardKey', () => {
 
   describe('getCode', () => {
     it('is a function', () => {
-      expect(keyboardKey.getCode).to.be.a('function')
+      expect(keyboardKey.getCode).any(Function)
     })
     it('returns the code for a given key name', () => {
       keyboardKey.getCode('Enter').should.equal(13, wrongCode('Enter', 13))
@@ -62,7 +62,7 @@ describe('keyboardKey', () => {
 
   describe('getName', () => {
     it('is a function', () => {
-      expect(keyboardKey.getName).to.be.a('function')
+      expect(keyboardKey.getName).any(Function)
     })
     it('returns the code for a given key name', () => {
       keyboardKey.getName(13).should.equal('Enter', wrongName(13, 'Enter'))

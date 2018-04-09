@@ -4,7 +4,7 @@ import { sandbox } from 'test/utils'
 describe('NodeRegistry', () => {
   it('is a class', () => {
     expect(NodeRegistry)
-      .to.be.a('function')
+      .any(Function)
   })
 
   describe('add', () => {

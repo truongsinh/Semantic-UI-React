@@ -25,9 +25,9 @@ describe('getNodeFromProps', () => {
 
     it('always returns null', () => {
       expect(getNodeFromProps({ node: 'foo' }))
-        .to.be.a('undefined')
+        .toBe(undefined)
       expect(getNodeFromProps({ }))
-        .to.be.a('undefined')
+        .toBe(undefined)
     })
   })
 })

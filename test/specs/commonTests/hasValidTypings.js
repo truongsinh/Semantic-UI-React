@@ -54,7 +54,7 @@ export default (Component, extractedInfo, options = {}) => {
 
     describe(`interface ${interfaceName}`, () => {
       it('has interface', () => {
-        interfaceObject.should.to.be.an('object')
+        interfaceObject.should.any(Object)
       })
 
       it('is exported', () => {

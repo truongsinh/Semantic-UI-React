@@ -278,7 +278,7 @@ export default (Component, options = {}) => {
   // ----------------------------------------
   describe('_meta', () => {
     it('is a static object prop', () => {
-      expect(_meta).to.be.an('object')
+      expect(_meta).any(Object)
     })
 
     describe('name', () => {
