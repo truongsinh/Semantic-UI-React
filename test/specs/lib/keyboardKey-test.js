@@ -36,10 +36,10 @@ describe('keyboardKey', () => {
         const _code = Number(code)
 
         if (Array.isArray(name)) {
-          expect(keyboardKey.getCode(name[0])).to.equal(_code, wrongCode(name[0], code))
-          expect(keyboardKey.getCode(name[1])).to.equal(_code, wrongCode(name[1], code))
+          expect(keyboardKey.getCode(name[0])).toBe(_code, wrongCode(name[0], code))
+          expect(keyboardKey.getCode(name[1])).toBe(_code, wrongCode(name[1], code))
         } else {
-          expect(keyboardKey.getCode(name)).to.equal(_code, wrongCode(name, code))
+          expect(keyboardKey.getCode(name)).toBe(_code, wrongCode(name, code))
         }
       })
     })
@@ -54,7 +54,7 @@ describe('keyboardKey', () => {
           keyboardKey.getCode(key1).should.equal(_code, wrongCode(key1, code))
         } else {
           const key = { key: name }
-          expect(keyboardKey.getCode(key)).to.equal(_code, wrongCode(key, code))
+          expect(keyboardKey.getCode(key)).toBe(_code, wrongCode(key, code))
         }
       })
     })
@@ -71,9 +71,9 @@ describe('keyboardKey', () => {
       _.each(keyboardKey.codes, (name, code) => {
         const keyName = keyboardKey.getName(code)
         if (Array.isArray(name)) {
-          expect(keyName).to.equal(name[0], wrongName(code, name[0]))
+          expect(keyName).toBe(name[0], wrongName(code, name[0]))
         } else {
-          expect(keyName).to.equal(name, wrongName(code, name))
+          expect(keyName).toBe(name, wrongName(code, name))
         }
       })
     })
@@ -82,9 +82,9 @@ describe('keyboardKey', () => {
         const keyName = keyboardKey.getName({ keyCode: code, shiftKey: false })
 
         if (Array.isArray(name)) {
-          expect(keyName).to.equal(name[0], wrongName(code, name[0]))
+          expect(keyName).toBe(name[0], wrongName(code, name[0]))
         } else {
-          expect(keyName).to.equal(name, wrongName(code, name))
+          expect(keyName).toBe(name, wrongName(code, name))
         }
       })
     })
@@ -93,9 +93,9 @@ describe('keyboardKey', () => {
         const keyName = keyboardKey.getName({ keyCode: code, shiftKey: true })
 
         if (Array.isArray(name)) {
-          expect(keyName).to.equal(name[1], wrongName(code, name[1]))
+          expect(keyName).toBe(name[1], wrongName(code, name[1]))
         } else {
-          expect(keyName).to.equal(name, wrongName(code, name))
+          expect(keyName).toBe(name, wrongName(code, name))
         }
       })
     })
@@ -104,9 +104,9 @@ describe('keyboardKey', () => {
         const keyName = keyboardKey.getName({ which: code, shiftKey: false })
 
         if (Array.isArray(name)) {
-          expect(keyName).to.equal(name[0], wrongName(code, name[0]))
+          expect(keyName).toBe(name[0], wrongName(code, name[0]))
         } else {
-          expect(keyName).to.equal(name, wrongName(code, name))
+          expect(keyName).toBe(name, wrongName(code, name))
         }
       })
     })
@@ -115,9 +115,9 @@ describe('keyboardKey', () => {
         const keyName = keyboardKey.getName({ which: code, shiftKey: true })
 
         if (Array.isArray(name)) {
-          expect(keyName).to.equal(name[1], wrongName(code, name[1]))
+          expect(keyName).toBe(name[1], wrongName(code, name[1]))
         } else {
-          expect(keyName).to.equal(name, wrongName(code, name))
+          expect(keyName).toBe(name, wrongName(code, name))
         }
       })
     })

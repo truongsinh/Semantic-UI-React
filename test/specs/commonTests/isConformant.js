@@ -74,13 +74,13 @@ export default (Component, options = {}) => {
 
   if (META.isPrivate(constructorName)) {
     it('is not exported as a component nor sub component', () => {
-      expect(isTopLevelAPIProp).to.equal(
+      expect(isTopLevelAPIProp).toBe(
         false,
         `"${constructorName}" is private (starts with  "_").` +
         ' It cannot be exposed on the top level API',
       )
 
-      expect(isSubComponent).to.equal(
+      expect(isSubComponent).toBe(
         false,
         `"${constructorName}" is private (starts with "_").` +
         ' It cannot be a static prop of another component (sub-component)',
@@ -89,7 +89,7 @@ export default (Component, options = {}) => {
   } else {
     // require all components to be exported at the top level
     it('is exported at the top level', () => {
-      expect(isTopLevelAPIProp).to.equal(true, [
+      expect(isTopLevelAPIProp).toBe(true, [
         `"${constructorName}" must be exported at top level.`,
         'Export it in `src/index.js`.',
       ].join(' '))
@@ -98,7 +98,7 @@ export default (Component, options = {}) => {
 
   if (_meta.parent) {
     it('is a static component on its parent', () => {
-      expect(isSubComponent).to.equal(
+      expect(isSubComponent).toBe(
         true,
         `\`${constructorName}\` is a child component (has a _meta.parent).` +
         ` It must be a static prop of its parent \`${_meta.parent}\``,
@@ -286,7 +286,7 @@ export default (Component, options = {}) => {
         expect(_meta).to.have.any.keys('name')
       })
       it('matches the filename', () => {
-        expect(_meta.name).to.equal(filenameWithoutExt)
+        expect(_meta.name).toBe(filenameWithoutExt)
       })
     })
     if (_.has(_meta, 'parent')) {

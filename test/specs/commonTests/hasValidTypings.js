@@ -59,7 +59,7 @@ export default (Component, extractedInfo, options = {}) => {
 
       it('is exported', () => {
         const { exported } = interfaceObject
-        exported.should.to.equal(true)
+        exported.should.toBe(true)
       })
     })
 
@@ -67,7 +67,7 @@ export default (Component, extractedInfo, options = {}) => {
       const { props } = interfaceObject
 
       it('has any signature', () => {
-        hasAnySignature(tsNodes).should.to.equal(true)
+        hasAnySignature(tsNodes).should.toBe(true)
       })
 
       it('are correctly defined', () => {
@@ -123,7 +123,7 @@ export default (Component, extractedInfo, options = {}) => {
         it(`"${propName}" should have the correct shorthand type `, () => {
           const { type } = _.find(shorthands, ['name', propName])
 
-          shorthandMap[type].should.to.equal(propType)
+          shorthandMap[type].should.toBe(propType)
         })
       })
     })

@@ -25,19 +25,19 @@ const getShorthand = ({
 
 const itReturnsNull = (value) => {
   it('returns null', () => {
-    expect(getShorthand({ value })).to.equal(null)
+    expect(getShorthand({ value })).toBeNull()
   })
 }
 
 const itReturnsNullGivenDefaultProps = (value) => {
   it('returns null given defaultProps object', () => {
-    expect(getShorthand({ value, defaultProps: { 'data-foo': 'foo' } })).to.equal(null)
+    expect(getShorthand({ value, defaultProps: { 'data-foo': 'foo' } })).toBeNull()
   })
 }
 
 const itReturnsAValidElement = (value) => {
   it('returns a valid element', () => {
-    expect(isValidElement(getShorthand({ value }))).to.equal(true)
+    expect(isValidElement(getShorthand({ value }))).toBe(true)
   })
 }
 

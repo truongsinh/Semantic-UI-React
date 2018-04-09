@@ -10,7 +10,7 @@ describe('suggest prop type', () => {
 
   it('should return undefined when prop is valid', () => {
     const propType = customPropTypes.suggest(['foo', 'bar', 'baz'])
-    expect(propType({ name: 'bar' }, 'name', 'FooComponent')).to.equal(undefined)
+    expect(propType({ name: 'bar' }, 'name', 'FooComponent')).toBe(undefined)
   })
 
   it('should return Error with suggestions when prop is invalid', () => {

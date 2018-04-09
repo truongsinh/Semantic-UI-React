@@ -171,7 +171,7 @@ describe('Popup', () => {
         wrapper.find('button').simulate('click')
         const selectedPosition = wrapper.state('position')
 
-        expect(selectedPosition).to.equal(position)
+        expect(selectedPosition).toBe(position)
       })
 
       it('is the original if no vertical position fits within the viewport', () => {
@@ -187,7 +187,7 @@ describe('Popup', () => {
         wrapper.find('button').simulate('click')
         const selectedPosition = wrapper.state('position')
 
-        expect(selectedPosition).to.equal(position)
+        expect(selectedPosition).toBe(position)
       })
     })
   })
@@ -210,12 +210,12 @@ describe('Popup', () => {
 
       const selectedPosition = wrapper.state('position')
 
-      expect(selectedPosition).to.equal('top center')
+      expect(selectedPosition).toBe('top center')
       expect(top).to.be.below(0)
     })
 
     it('is enabled by default', () => {
-      expect(Popup.defaultProps.keepInViewPort).to.equal(true)
+      expect(Popup.defaultProps.keepInViewPort).toBe(true)
     })
 
     it('alters the position when true and renders within the viewport', () => {

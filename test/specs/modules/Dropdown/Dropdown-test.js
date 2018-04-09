@@ -2293,7 +2293,7 @@ describe('Dropdown', () => {
         .find('DropdownItem')
         .prop('text')
 
-      expect(text[0]).to.equal('Add ')
+      expect(text[0]).toBe('Add ')
       shallow(text[1]).equals(<b key='addition-query'>boo</b>)
     })
 
@@ -2318,7 +2318,7 @@ describe('Dropdown', () => {
         .find('DropdownItem')
         .prop('text')
 
-      expect(text[0]).to.equal('New: ')
+      expect(text[0]).toBe('New: ')
       shallow(text[1]).equals(<b key='addition-query'>boo</b>)
     })
 
@@ -2368,7 +2368,7 @@ describe('Dropdown', () => {
         .find('DropdownItem')
         .prop('text')
 
-      expect(text[0]).to.equal('')
+      expect(text[0]).toBe('')
       shallow(text[1]).equals(<b key='addition-query'>boo</b>)
     })
 

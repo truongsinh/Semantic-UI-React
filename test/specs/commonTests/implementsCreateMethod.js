@@ -48,22 +48,22 @@ export default (Component) => {
 
     it('returns null when passed null', () => {
       expect(Component.create(null))
-        .to.equal(null)
+        .toBeNull()
     })
 
     it('returns null when passed undefined', () => {
       expect(Component.create(undefined))
-        .to.equal(null)
+        .toBeNull()
     })
 
     it('returns null when passed true', () => {
       expect(Component.create(true))
-        .to.equal(null)
+        .toBeNull()
     })
 
     it('returns null when passed false', () => {
       expect(Component.create(false))
-        .to.equal(null)
+        .toBeNull()
     })
   })
 }
