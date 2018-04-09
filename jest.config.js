@@ -2,7 +2,7 @@ module.exports = {
     moduleNameMapper: {
         'semantic-ui-react': 'src/index.js',
     },
-    setupFiles: ["./test/setup"],
+    setupTestFrameworkScriptFile: "./test/setup",
     moduleDirectories: ["node_modules", "<rootDir>", ],
     testMatch: [
         '**/test/**/*',
