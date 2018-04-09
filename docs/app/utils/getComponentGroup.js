@@ -8,8 +8,8 @@ const getComponentGroup = (docInfo, componentName) => ({
   },
   ..._.flow(
     _.filter(component => _.get('_meta.parent', component) === componentName),
-    _.map('_meta.name'),
-    _.map(name => ({
+    i => i.map(e => e._meta.name),
+    i => i.map(name => ({
       name,
       description: _.get('docBlock.description', docInfo[name]),
       props: _.get('props', docInfo[name]),
