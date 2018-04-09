@@ -60,7 +60,7 @@ describe('Popup', () => {
     wrapperMount(<Popup open>child text</Popup>)
 
     document.querySelector('.ui.popup.visible')
-      .innerText
+      .textContent
       .should.equal('child text')
   })
 

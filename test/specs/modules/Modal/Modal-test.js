@@ -68,7 +68,7 @@ describe('Modal', () => {
     wrapperMount(<Modal open>child text</Modal>)
 
     document.querySelector('.ui.modal')
-      .innerText
+      .textContent
       .should.equal('child text')
   })
 
