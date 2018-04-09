@@ -76,12 +76,12 @@ describe('Sticky', () => {
 
   let requestAnimationFrame
 
-  before(() => {
+  beforeEach(() => {
     requestAnimationFrame = window.requestAnimationFrame
     window.requestAnimationFrame = fn => fn()
   })
 
-  after(() => {
+  afterEach(() => {
     window.requestAnimationFrame = requestAnimationFrame
   })
 

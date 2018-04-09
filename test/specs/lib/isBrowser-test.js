@@ -19,11 +19,11 @@ describe('isBrowser', () => {
   })
 
   describe('server-side', () => {
-    before(() => {
+    beforeEach(() => {
       isBrowser.override = false
     })
 
-    after(() => {
+    afterEach(() => {
       isBrowser.override = null
     })
 

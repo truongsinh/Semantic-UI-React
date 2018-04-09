@@ -103,7 +103,7 @@ describe('Visibility', () => {
 
   let requestAnimationFrame
 
-  before(() => {
+  beforeEach(() => {
     requestAnimationFrame = window.requestAnimationFrame
     window.requestAnimationFrame = (fn) => {
       fn()
@@ -111,7 +111,7 @@ describe('Visibility', () => {
     }
   })
 
-  after(() => {
+  afterEach(() => {
     window.requestAnimationFrame = requestAnimationFrame
   })
 

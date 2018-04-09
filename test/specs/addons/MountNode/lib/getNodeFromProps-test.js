@@ -15,11 +15,11 @@ describe('getNodeFromProps', () => {
   })
 
   describe('browser', () => {
-    before(() => {
+    beforeEach(() => {
       isBrowser.override = false
     })
 
-    after(() => {
+    afterEach(() => {
       isBrowser.override = null
     })
 

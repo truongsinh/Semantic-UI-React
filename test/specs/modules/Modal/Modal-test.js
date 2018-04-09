@@ -469,7 +469,7 @@ describe('Modal', () => {
       document.body.classList.remove('scrolling')
     })
 
-    after(() => {
+    afterEach(() => {
       window.innerHeight = innerHeight
     })
 
@@ -542,11 +542,11 @@ describe('Modal', () => {
   })
 
   describe('server-side', () => {
-    before(() => {
+    beforeEach(() => {
       isBrowser.override = false
     })
 
-    after(() => {
+    afterEach(() => {
       isBrowser.override = null
     })
 
