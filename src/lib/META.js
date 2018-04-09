@@ -1,4 +1,5 @@
 import _ from 'lodash/fp'
+import pipe from '../helpers/pipe'
 
 export const TYPES = {
   ADDON: 'addon',
@@ -40,7 +41,7 @@ const getMeta = (metaArg) => {
   else if (isMeta(_.get('constructor._meta', metaArg))) return metaArg.constructor._meta
 }
 
-const metaHasKeyValue = _.curry((key, val, metaArg) => _.flow(getMeta, _.get(key), _.eq(val))(metaArg))
+const metaHasKeyValue = _.curry((key, val, metaArg) => pipe(getMeta, _.get(key), _.eq(val))(metaArg))
 export const isType = metaHasKeyValue('type')
 
 // ----------------------------------------
@@ -55,8 +56,8 @@ export const isView = isType(TYPES.VIEW)
 export const isModule = isType(TYPES.MODULE)
 
 // parent
-export const isParent = _.flow(getMeta, _.has('parent'), _.eq(false))
-export const isChild = _.flow(getMeta, _.has('parent'))
+export const isParent = pipe(getMeta, _.has('parent'), _.eq(false))
+export const isChild = pipe(getMeta, _.has('parent'))
 
 // other
-export const isPrivate = _.flow(getMeta, _.get('name'), _.startsWith('_'))
+export const isPrivate = pipe(getMeta, _.get('name'), _.startsWith('_'))

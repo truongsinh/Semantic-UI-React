@@ -1,6 +1,7 @@
 import _ from 'lodash/fp'
 import PropTypes from 'prop-types'
 import leven from './leven'
+import pipe from '../helpers/pipe'
 
 const typeOf = (...args) => Object.prototype.toString.call(...args)
 
@@ -40,17 +41,17 @@ export const suggest = (suggestions) => {
   const findBestSuggestions = _.memoize((str) => {
     const propValueWords = str.split(' ')
 
-    return _.flow(
+    return pipe(
       _.map((suggestion) => {
         const suggestionWords = suggestion.split(' ')
 
-        const propValueScore = _.flow(
+        const propValueScore = pipe(
           _.map(x => _.map(y => leven(x, y), suggestionWords)),
           _.map(_.min),
           _.sum,
         )(propValueWords)
 
-        const suggestionScore = _.flow(
+        const suggestionScore = pipe(
           _.map(x => _.map(y => leven(x, y), propValueWords)),
           _.map(_.min),
           _.sum,
@@ -143,7 +144,7 @@ export const every = validators => (props, propName, componentName, ...rest) => 
     ].join(' '))
   }
 
-  const errors = _.flow(
+  const errors = pipe(
     _.map((validator) => {
       if (typeof validator !== 'function') {
         throw new Error(`every() argument "validators" should contain functions, found: ${typeOf(validator)}.`)

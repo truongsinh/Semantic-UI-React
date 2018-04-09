@@ -1,6 +1,7 @@
 import _ from 'lodash/fp'
+import pipe from '../../../helpers/pipe'
 
-const computeClassNames = _.flow(
+const computeClassNames = pipe(
   _.toArray,
   _.map('props.className'),
   _.flatMap(_.split(/\s+/)),
