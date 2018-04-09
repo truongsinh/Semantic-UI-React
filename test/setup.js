@@ -23,13 +23,6 @@ enzyme.configure({
 })
 
 //
-// Mocha
-//
-mocha.setup({
-  ui: 'bdd',
-})
-
-//
 // Chai
 //
 global.expect = chai.expect

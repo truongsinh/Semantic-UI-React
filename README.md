@@ -1,3 +1,10 @@
+# Difference
+- [ ] Jest instead of Karma/Jasmine
+- [ ] ES6 idioms instead of lodash
+- [ ] Styled-components instead of CSS
+- [ ] TypeScript instead of JSX/Babel
+- [ ] Webpack instead of Gulp
+
 ⚠️NOTE: Currently Semantic UI React is not yet compatible with the latest 2.3 version of Semantic UI styles. See [#2250](https://github.com/Semantic-Org/Semantic-UI-React/issues/2550) for more info.
 
 <!-- Logo -->

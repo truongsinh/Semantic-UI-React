@@ -1,5 +1,8 @@
-import _debug from 'debug'
+// import * as _debug from 'debug'
 import isBrowser from './isBrowser'
+
+// console.log(_debug.debug(2))
+const _debug = ()=> {}
 
 if (isBrowser() && process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
   // Heads Up!
