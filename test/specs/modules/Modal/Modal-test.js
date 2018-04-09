@@ -76,10 +76,10 @@ describe('Modal', () => {
     const child = <div data-child />
     wrapperMount(<Modal open>{child}</Modal>)
 
-    document
+    expect(document
       .querySelector('.ui.modal')
       .querySelector('[data-child]')
-      .should.not.equal(null, 'Modal did not render the child component.')
+    ).not.equal(null, 'Modal did not render the child component.')
   })
 
   it("spreads the user's style prop on the Modal", () => {
@@ -88,8 +88,8 @@ describe('Modal', () => {
     wrapperMount(<Modal open style={style} />)
     const element = document.querySelector('.ui.modal')
 
-    element.style.should.have.property('marginTop', '1em')
-    element.style.should.have.property('top', '0px')
+    expect(element.style).have.property('marginTop', '1em')
+    expect(element.style).have.property('top', '0px')
   })
 
   describe('actions', () => {
