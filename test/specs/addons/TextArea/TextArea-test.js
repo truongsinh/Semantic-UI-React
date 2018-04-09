@@ -48,12 +48,12 @@ describe('TextArea', () => {
       const element = document.querySelector('textarea')
 
       if (!height) {
-        element.style.should.have.property('resize', '')
-        element.style.should.have.property('height', '')
+        expect(element.style).have.property('resize', '')
+        expect(element.style).have.property('height', '')
         return
       }
 
-      element.style.should.have.property('resize', 'none')
+      expect(element.style).have.property('resize', 'none')
 
       // CI renders textareas with an extra pixel
       // assert height with a margin of error of one pixel
@@ -124,7 +124,7 @@ describe('TextArea', () => {
       const element = document.querySelector('textarea')
 
       wrapper.instance().focus()
-      document.activeElement.should.equal(element)
+      expect(document.activeElement).equal(element)
     })
   })
 
