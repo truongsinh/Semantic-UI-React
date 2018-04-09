@@ -292,7 +292,7 @@ export default (Component, options = {}) => {
     if (_.has(_meta, 'parent')) {
       describe('parent', () => {
         it('matches some component name', () => {
-          expect(_.map(semanticUIReact, c => c.prototype.constructor.name)).to.contain(_meta.parent)
+          expect(_.map(semanticUIReact, c => c.prototype.constructor.name)).toContain(_meta.parent)
         })
       })
     }
@@ -301,7 +301,7 @@ export default (Component, options = {}) => {
         expect(_meta).to.have.any.keys('type')
       })
       it('is a META.TYPES value', () => {
-        expect(_.values(META.TYPES)).to.contain(_meta.type)
+        expect(_.values(META.TYPES)).toContain(_meta.type)
       })
     })
   })
