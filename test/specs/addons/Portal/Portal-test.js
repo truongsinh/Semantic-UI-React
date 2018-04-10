@@ -415,7 +415,7 @@ describe('Portal', () => {
 
     it('does not close the portal on trigger mouseleave when portal receives mouseenter within limit', (done) => {
       const delay = 10
-      wrapperMount(
+      const wrapper = wrapperMount(
         <Portal
           trigger={<button />}
           defaultOpen
