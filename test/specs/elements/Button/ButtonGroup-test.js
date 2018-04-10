@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Button from 'src/elements/Button/Button'
 import ButtonGroup from 'src/elements/Button/ButtonGroup'
 import { SUI } from 'src/lib'
 import * as common from 'test/specs/commonTests'

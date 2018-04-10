@@ -3,6 +3,7 @@ import _ from 'lodash'
 import React from 'react'
 
 import { SUI } from 'src/lib'
+import Card from 'src/views/Card/Card'
 import CardGroup from 'src/views/Card/CardGroup'
 import * as common from 'test/specs/commonTests'
 

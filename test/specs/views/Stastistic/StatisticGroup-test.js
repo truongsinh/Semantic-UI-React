@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 
 import { SUI } from 'src/lib'
+import Statistic from 'src/views/Statistic/Statistic'
 import StatisticGroup from 'src/views/Statistic/StatisticGroup'
 import * as common from 'test/specs/commonTests'
 
