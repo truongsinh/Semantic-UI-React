@@ -68,10 +68,10 @@ describe('Popup', () => {
     const child = <div data-child />
     wrapperMount(<Popup open>{child}</Popup>)
 
-    document
+    expect(document
       .querySelector('.ui.popup.visible')
       .querySelector('[data-child]')
-      .should.not.equal(null, 'Popup did not render the child component.')
+    ).to.not.equal(null, 'Popup did not render the child component.')
   })
 
   it('should add className to the Popup wrapping node', () => {
