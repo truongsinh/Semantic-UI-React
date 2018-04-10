@@ -1501,8 +1501,8 @@ describe('Dropdown', () => {
           .at(randomIndex)
           .simulate('click', nativeEvent)
 
-        wrapper.instance()
-          .searchRef.should.eq(document.activeElement)
+        expect(wrapper.instance()
+          .searchRef).to.eq(document.activeElement)
       })
     })
     describe('removing items', () => {
