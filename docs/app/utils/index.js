@@ -7,7 +7,40 @@ export * from './constants'
 export getComponentGroup from './getComponentGroup'
 export getSeeItems from './getSeeItems'
 export scrollToAnchor from './scrollToAnchor'
+if (typeof require.context === 'undefined') {
+  const fs = require('fs');
+  const path = require('path');
 
+  require.context = (base = '.', scanSubDirectories = false, regularExpression = /\.js$/) => {
+    const files = {};
+
+    function readDirectory(directory) {
+      fs.readdirSync(directory).forEach((file) => {
+        const fullPath = path.resolve(directory, file);
+
+        if (fs.statSync(fullPath).isDirectory()) {
+          if (scanSubDirectories) readDirectory(fullPath);
+
+          return;
+        }
+
+        if (!regularExpression.test(fullPath)) return;
+
+        files[fullPath] = true;
+      });
+    }
+
+    readDirectory(path.resolve(__dirname, '../../../', base));
+
+    function Module(file) {
+      return require(file);
+    }
+
+    Module.keys = () => Object.keys(files);
+
+    return Module;
+  };
+}
 /**
  * Get the Webpack Context for all doc site examples.
  */
