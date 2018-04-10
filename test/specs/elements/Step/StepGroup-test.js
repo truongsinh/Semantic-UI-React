@@ -1,6 +1,10 @@
 import _ from 'lodash'
 import React from 'react'
 
+// @todo without importing Step, Step.Group is undefined as
+// something todo with changing case sensitivity of 
+// 'src/elements/Step/StepGroup' or './StepGroup'
+import Step from 'src/elements/Step/Step'
 import StepGroup from 'src/elements/Step/StepGroup'
 import { numberToWordMap } from 'src/lib'
 import * as common from 'test/specs/commonTests'
