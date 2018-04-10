@@ -67,7 +67,7 @@ describe('Portal', () => {
     const instance = wrapper.instance()
 
     instance.rootNode.firstElementChild.tagName.should.equal('P')
-    document.body.lastElementChild.should.equal(instance.rootNode)
+    expect(document.body.lastElementChild).equal(instance.rootNode)
     document.body.childElementCount.should.equal(1)
   })
 
@@ -90,7 +90,7 @@ describe('Portal', () => {
 
       // Enzyme docs say it merges previous props but without children, react complains
       wrapper.setProps({ open: true, children: <p /> })
-      document.body.lastElementChild.should.equal(instance.rootNode)
+      expect(document.body.lastElementChild).equal(instance.rootNode)
       document.body.childElementCount.should.equal(1)
     })
 
@@ -98,7 +98,7 @@ describe('Portal', () => {
       wrapperMount(<Portal open><p /></Portal>)
       const instance = wrapper.instance()
 
-      document.body.lastElementChild.should.equal(instance.rootNode)
+      expect(document.body.lastElementChild).equal(instance.rootNode)
       document.body.childElementCount.should.equal(1)
 
       wrapper.setProps({ open: false, children: <p /> })
@@ -131,7 +131,7 @@ describe('Portal', () => {
       const instance = wrapper.instance()
 
       document.body.childElementCount.should.equal(2)
-      document.body.lastElementChild.should.equal(instance.rootNode)
+      expect(document.body.lastElementChild).equal(instance.rootNode)
     })
 
     it('prepends portal by when passed', () => {
@@ -139,7 +139,7 @@ describe('Portal', () => {
       const instance = wrapper.instance()
 
       document.body.childElementCount.should.equal(2)
-      document.body.firstElementChild.should.equal(instance.rootNode)
+      expect(document.body.firstElementChild).equal(instance.rootNode)
     })
   })
 
@@ -261,8 +261,8 @@ describe('Portal', () => {
       wrapperMount(<Portal mountNode={mountNode} open><p /></Portal>)
       const instance = wrapper.instance()
 
-      mountNode.lastElementChild.should.equal(instance.rootNode)
-      mountNode.childElementCount.should.equal(1)
+      expect(mountNode.lastElementChild).to.equal(instance.rootNode)
+      expect(mountNode.childElementCount).to.equal(1)
     })
   })
 
@@ -287,7 +287,7 @@ describe('Portal', () => {
       wrapperMount(<Portal trigger={trigger} openOnTriggerClick><p /></Portal>)
 
       wrapper.find('button').simulate('click')
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
       spy.should.have.been.calledOnce()
     })
   })
@@ -297,7 +297,7 @@ describe('Portal', () => {
       wrapperMount(<Portal trigger={<button />} defaultOpen><p /></Portal>)
 
       wrapper.find('button').simulate('click')
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
     })
 
     it('closes the portal on click when set', () => {
@@ -328,7 +328,7 @@ describe('Portal', () => {
 
       setTimeout(() => {
         document.body.childElementCount.should.equal(1)
-        document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+        expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
         done()
       }, 1)
     })
@@ -341,7 +341,7 @@ describe('Portal', () => {
       wrapper.find('button').simulate('mouseleave')
 
       setTimeout(() => {
-        document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+        expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
         done()
       }, 1)
     })
@@ -353,7 +353,7 @@ describe('Portal', () => {
         </Portal>,
       )
 
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
       wrapper.find('button').simulate('mouseleave')
 
       setTimeout(() => {
@@ -370,7 +370,7 @@ describe('Portal', () => {
       domEvent.mouseLeave(wrapper.instance().rootNode.firstElementChild)
 
       setTimeout(() => {
-        document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+        expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
         done()
       }, 1)
     })
@@ -382,7 +382,7 @@ describe('Portal', () => {
         </Portal>,
       )
 
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
       domEvent.mouseLeave(wrapper.instance().rootNode.firstElementChild)
 
       setTimeout(() => {
@@ -436,7 +436,7 @@ describe('Portal', () => {
 
       // The portal should not have closed
       setTimeout(() => {
-        document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+        expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
         done()
       }, delay + 1)
     })
@@ -455,7 +455,7 @@ describe('Portal', () => {
         .find('button')
         .simulate('focus')
 
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
     })
   })
 
@@ -465,7 +465,7 @@ describe('Portal', () => {
         .find('button')
         .simulate('blur')
 
-      document.body.lastElementChild.should.equal(wrapper.instance().rootNode)
+      expect(document.body.lastElementChild).equal(wrapper.instance().rootNode)
     })
 
     it('closes the portal on blur when set', () => {
@@ -519,7 +519,7 @@ describe('Portal', () => {
 
       setTimeout(() => {
         const { portalNode } = wrapper.instance()
-        document.activeElement.should.not.equal(portalNode)
+        expect(document.activeElement).to.not.equal(portalNode)
         done()
       }, 0)
     })
@@ -529,18 +529,18 @@ describe('Portal', () => {
       document.body.appendChild(input)
 
       input.focus()
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
 
       wrapperMount(<Portal open><p /></Portal>)
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
 
       setTimeout(() => {
-        document.activeElement.should.equal(input)
+        expect(document.activeElement).to.equal(input)
 
         wrapper.setProps({ open: false })
         wrapper.unmount()
 
-        document.activeElement.should.equal(input)
+        expect(document.activeElement).to.equal(input)
 
         document.body.removeChild(input)
         done()
@@ -552,16 +552,16 @@ describe('Portal', () => {
       document.body.appendChild(input)
 
       input.focus()
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
 
       wrapperMount(<Portal defaultOpen><p /></Portal>)
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
 
       setTimeout(() => {
-        document.activeElement.should.equal(input)
+        expect(document.activeElement).to.equal(input)
 
         wrapper.render()
-        document.activeElement.should.equal(input)
+        expect(document.activeElement).to.equal(input)
 
         document.body.removeChild(input)
         done()

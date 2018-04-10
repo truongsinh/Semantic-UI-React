@@ -109,7 +109,7 @@ describe('Button', () => {
       wrapper.instance().focus()
 
       const button = document.querySelector('button')
-      document.activeElement.should.equal(button)
+      expect(document.activeElement).to.equal(button)
 
       wrapper.detach()
       document.body.removeChild(mountNode)

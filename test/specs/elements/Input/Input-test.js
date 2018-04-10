@@ -151,7 +151,7 @@ describe('Input', () => {
       wrapper.instance().focus()
 
       const input = document.querySelector('.ui.input input')
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
 
       wrapper.detach()
       document.body.removeChild(mountNode)

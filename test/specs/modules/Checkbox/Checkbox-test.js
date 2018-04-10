@@ -317,7 +317,7 @@ describe('Checkbox', () => {
       const input = document.querySelector('.ui.checkbox input')
 
       domEvent.fire(input, 'mousedown')
-      document.activeElement.should.equal(input)
+      expect(document.activeElement).to.equal(input)
     })
   })
 
