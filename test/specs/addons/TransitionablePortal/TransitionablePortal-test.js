@@ -137,6 +137,7 @@ describe('TransitionablePortal', () => {
       const trigger = <button />
       wrapperMount(<TransitionablePortal {...requiredProps} trigger={trigger} />)
 
+      let event = event || {}
       wrapper.find('button').simulate('click', event)
       wrapper.should.have.state('portalOpen', true)
     })
