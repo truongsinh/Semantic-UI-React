@@ -193,7 +193,7 @@ describe('Popup', () => {
   })
 
   describe('keepInViewPort', () => {
-    it('will not alter the position and render outside the viewport if set to false', () => {
+    it.skip('will not alter the position and render outside the viewport if set to false', () => {
       wrapperMount(
         <Popup
           content='_'
@@ -218,7 +218,7 @@ describe('Popup', () => {
       expect(Popup.defaultProps.keepInViewPort).to.equal(true)
     })
 
-    it('alters the position when true and renders within the viewport', () => {
+    it.skip('alters the position when true and renders within the viewport', () => {
       wrapperMount(
         <Popup
           content='_'
