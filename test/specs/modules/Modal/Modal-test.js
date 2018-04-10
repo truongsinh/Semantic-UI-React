@@ -478,7 +478,7 @@ describe('Modal', () => {
       assertBodyClasses('scrolling', false)
     })
 
-    it.skip('adds the scrolling class to the body when taller than the window', (done) => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('adds the scrolling class to the body when taller than the window', (done) => {
       window.innerHeight = 10
       wrapperMount(<Modal open>foo</Modal>)
 
@@ -488,7 +488,7 @@ describe('Modal', () => {
       })
     })
 
-    it.skip('adds/removes the scrolling class to the body when the window grows/shrinks', (done) => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('adds/removes the scrolling class to the body when the window grows/shrinks', (done) => {
       assertBodyClasses('scrolling', false)
 
       wrapperMount(<Modal open>foo</Modal>)
@@ -505,7 +505,7 @@ describe('Modal', () => {
       })
     })
 
-    it.skip('adds the scrolling class to the body after re-open', (done) => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('adds the scrolling class to the body after re-open', (done) => {
       assertBodyClasses('scrolling', false)
 
       window.innerHeight = 10
@@ -525,7 +525,7 @@ describe('Modal', () => {
       })
     })
 
-    it.skip('removes the scrolling class from the body on unmount', (done) => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('removes the scrolling class from the body on unmount', (done) => {
       assertBodyClasses('scrolling', false)
 
       window.innerHeight = 10

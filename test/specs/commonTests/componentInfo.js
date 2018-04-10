@@ -5,7 +5,7 @@ import ReactDOMServer from 'react-dom/server'
 
 import { META } from 'src/lib'
 import helpers from './commonHelpers'
-if (typeof require.context === 'undefined') {
+if (process.env.NODE_TEST_ENV === 'jest') {
   const fs = require('fs');
   const path = require('path');
 

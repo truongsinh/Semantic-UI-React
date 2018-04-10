@@ -10,7 +10,9 @@ const webpackConfig = {
   name: 'client',
   target: 'web',
   devtool: config.compiler_devtool,
-  externals: {},
+  externals: {
+    fs:    "commonjs fs",
+  },
   module: {
     noParse: [],
     rules: [],
@@ -73,7 +75,13 @@ webpackConfig.output = {
 // Plugins
 // ------------------------------------
 webpackConfig.plugins = [...webpackConfig.plugins,
-  new webpack.DefinePlugin(config.compiler_globals),
+  new webpack.DefinePlugin({
+    ...config.compiler_globals,
+    "process.env": {
+      ...config.compiler_globals['process.env'],
+      NODE_TEST_ENV: JSON.stringify("webpack"),
+    }
+  }),
   new webpack.DllReferencePlugin({
     context: paths.base('node_modules'),
     manifest: require(paths.base('dll/vendor-manifest.json')),

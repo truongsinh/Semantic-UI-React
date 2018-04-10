@@ -7,12 +7,12 @@ describe('isBrowser', () => {
       isBrowser().should.be.true()
     })
 
-    it.skip('should return false when there is no document', () => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('should return false when there is no document', () => {
       require('imports-loader?document=>undefined!src/lib/isBrowser').default().should.be.false()
       require('imports-loader?document=>null!src/lib/isBrowser').default().should.be.false()
     })
 
-    it.skip('should return false when there is no window', () => {
+    ;(process.env.NODE_TEST_ENV === 'jest' ? it.skip : it)('should return false when there is no window', () => {
       require('imports-loader?window=>undefined!src/lib/isBrowser').default().should.be.false()
       require('imports-loader?window=>null!src/lib/isBrowser').default().should.be.false()
     })
