@@ -9,8 +9,7 @@ describe('getNodeFromProps', () => {
     })
 
     it('returns document.body by default', () => {
-      getNodeFromProps({})
-        .should.equal(document.body)
+      expect(getNodeFromProps({})).to.equal(document.body)
     })
   })
 

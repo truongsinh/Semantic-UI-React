@@ -3,18 +3,18 @@ import normalizeTarget from 'src/lib/eventStack/normalizeTarget'
 describe('normalizeTarget', () => {
   describe('document', () => {
     it('returns `document` when it passed as string', () => {
-      normalizeTarget('document')
-        .should.equal(document)
+      expect(normalizeTarget('document')
+        ).to.equal(document)
     })
 
     it('returns `document` when `false` passed', () => {
-      normalizeTarget(false)
-        .should.equal(document)
+      expect(normalizeTarget(false)
+        ).to.equal(document)
     })
 
     it('returns `document` when it passed', () => {
-      normalizeTarget(document)
-        .should.equal(document)
+      expect(normalizeTarget(document)
+        ).to.equal(document)
     })
   })
 
@@ -22,20 +22,20 @@ describe('normalizeTarget', () => {
     it('returns `element` when it passed', () => {
       const element = document.createElement('div')
 
-      normalizeTarget(element)
-        .should.equal(element)
+      expect(normalizeTarget(element)
+        ).to.equal(element)
     })
   })
 
   describe('window', () => {
     it('returns `document` when it passed as string', () => {
-      normalizeTarget('window')
-        .should.equal(window)
+      expect(normalizeTarget('window')
+        ).to.equal(window)
     })
 
     it('returns document when it passed', () => {
-      normalizeTarget(window)
-        .should.equal(window)
+      expect(normalizeTarget(window)
+        ).to.equal(window)
     })
   })
 })
